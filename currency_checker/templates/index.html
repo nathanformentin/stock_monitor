@@ -1,0 +1,79 @@
+<!DOCTYPE HTML>
+
+<html>
+	<head>
+		<title>Buscador de ativos</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="../static/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+			<div id="wrapper">
+					<section id="three" class="wrapper style1 fade-up">
+						<div class="inner">
+							<h2>Buscador de ativos</h2>
+							<p> Para buscar um ativo, insira sua sigla no campo determinado (exemplo: PETR4). Após, insira a moeda desejada (exemplo: BRL). As informações aparecerão na coluna à direita.
+								Para pesquisar criptomoedas, por favor, adicione "USD" ao final (ex: BTCUSD). A moeda pode ser definida para essa modalidade também. </p>
+							<div class="split style1">
+								<section>
+									<form method="post" action="">
+										<div class="fields">
+											<div class="field half">
+												<label for="stock">Sigla do ativo</label>
+												<input type="text" name="stock" id="stock" required="true">
+											</div>
+											<div class="field half">
+												<label for="desired_currency">Moeda desejada</label>
+												<input type="text" name="desired_currency" id="desired_currency" required="true">
+											</div>
+										</div>
+										<ul class="actions">
+											<li><a href="" class="button submit">Buscar</a></li>
+										</ul>
+									</form>
+									<h1>Ativo buscado</h1>
+									<span style="font-size:25px"> <b> {{name}} </b> </span> <br>
+									<span style="font-size:50px"> <b> {{error_message}} </b> </span>
+								</section>
+								<section>
+									<ul class="contact">
+										<li>
+											<h3>Valor</h3>
+											<span> <b> {{price}} </b> </span>
+										</li>
+										<li>
+											<h3>Movimentação diária</h3>
+											<a> {{daily_price_fluctuation}}</a>
+										</li>
+										<li>
+											<h3>Exchange</h3>
+											<span> {{exchange}} </span>
+										</li>
+
+										<li>
+											<h3>Última atualização</h3>
+											<span> {{last_update}} </span>
+										</li>
+
+										<li>
+											<h3>Acesse o código</h3>
+											<ul class="icons">
+												<li><a href="#" class="icon brands fa-github"> GitHub <span class="label">GitHub</span></a></li>
+											</ul>
+										</li>
+									</ul>
+								</section>
+							</div>
+						</div>
+					</section>
+
+			</div>
+
+			<script src="../static/js/jquery.min.js"></script>
+			<script src="../static/js/browser.min.js"></script>
+			<script src="../static/js/breakpoints.min.js"></script>
+			<script src="../static/js/main.js"></script>
+
+	</body>
+</html>
