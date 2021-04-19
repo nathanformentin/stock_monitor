@@ -114,7 +114,7 @@ class currency_price:
 
     def format_endpoint(self,currency_to_convert,
                         actual_currency):
-        endpoint = f'https://free.currconv.com/api/v7/convert?q={actual_currency}_{currency_to_convert}&compact=ultra&apiKey=0d46caf2d727fe53ed48'
+        endpoint = f'https://free.currconv.com/api/v7/convert?q={actual_currency}_{currency_to_convert}&compact=ultra&apiKey={self.__key}'
         return endpoint
 
 def parse_entry(message):
