@@ -1,5 +1,10 @@
 import requests
 import datetime as dt
+
+BOVESPA_API_KEY = 1234 #placeholder
+INT_EXCHANGE_API_KEY = 1234 #placeholder
+CURRENCY_API_KEY = 1234 #placeholder
+
 class data_gathering:
 
     def __init__(self,currency,int_exchange,
@@ -51,7 +56,7 @@ class data_gathering:
 class bovespa:
 
     def __init__(self):
-        self.__key = '63ef766d'
+        self.__key = BOVESPA_API_KEY
 
     def parse_response(self,response,
                        company_name):
@@ -80,7 +85,7 @@ class bovespa:
 class international_exchange:
 
     def __init__(self):
-        self.__key = 'f2aaef7b679e37e40163508ff67b4ee5'
+        self.__key = INT_EXCHANGE_API_KEY
 
     def parse_response(self,response):
         result = response[0]
@@ -105,7 +110,7 @@ class international_exchange:
 class currency_price:
 
     def __init__(self):
-        self.__key = '0d46caf2d727fe53ed48'
+        self.__key = CURRENCY_API_KEY
 
     def format_endpoint(self,currency_to_convert,
                         actual_currency):
@@ -141,14 +146,14 @@ def obtain_values(stock_name,desired_currency=None):
             message = "Não foi possível encontrar esse ativo na nossa base de dados :( ."
             parsed_data['error_message'] = message
             return parsed_data  
-        #try:
-        if desired_currency == parsed_data['currency'] or not desired_currency:
-            pass
-        else:
-            found_currency = data_gatherer.convert_currency(desired_currency,parsed_data)
-            if found_currency:
-                parsed_data = found_currency
-        #except Exception as e:
+        try:
+            if desired_currency == parsed_data['currency'] or not desired_currency:
+                pass
+            else:
+                found_currency = data_gatherer.convert_currency(desired_currency,parsed_data)
+                if found_currency:
+                    parsed_data = found_currency
+        except Exception as e:
             message = "Não foi possível encontrar a moeda selecionada. :("
             parsed_data['error_message'] = message
             return parsed_data
